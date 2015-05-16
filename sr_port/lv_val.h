@@ -238,7 +238,7 @@
 #define	LV_BLK_GET_FREE(LV_BLK, LVBLK_BASE)	(&LVBLK_BASE[LV_BLK->numUsed])
 
 #ifdef DEBUG_ALIAS
-# ifdef __linux__
+# if defined(__linux__) || defined(__NetBSD__)
 /*void * __attribute ((noinline)) __builtin_return_address(unsigned int level); Currently gives a warning we don't need */
 #  define CURRENT_PC __builtin_return_address(0)
 # else

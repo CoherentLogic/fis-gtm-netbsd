@@ -44,7 +44,7 @@ void err_init(void (*x)())
 	ctxt->ch = x;
 	chnd_end = &chnd[CONDSTK_INITIAL_INCR]; /* chnd_end is the end of the condition handler stack */
 	chnd_incr = CONDSTK_INITIAL_INCR * 2;
-#	ifdef __linux__
+#	if defined(__linux__) || defined(__NetBSD__)
 	/* Read the coredump_filter value from /proc for this process, update the value if necessary so we have the proper
 	 * flags set to get the info we (and gtmpcat) need to properly process a core file. Note any errors we encounter just
 	 * send a message to the operator log and return as nothing here should prevent GT.M from running.

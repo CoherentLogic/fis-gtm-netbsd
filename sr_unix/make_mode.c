@@ -31,7 +31,7 @@
 
 #ifdef __ia64
 
-#if defined(__linux__)
+#if defined(__linux__) || defined(__NetBSD__)
 
 void dmode_table_init() __attribute__((constructor));
 

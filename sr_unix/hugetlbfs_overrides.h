@@ -12,7 +12,7 @@
 #ifndef HUGETLBFS_OVERRIDES_H_
 #define HUGETLBFS_OVERRIDES_H_
 
-#if defined(__linux__)
+#if defined(__linux__) || defined(__NetBSD__)
 #	if ( defined(__i386__) || defined(__x86_64__) )
 #		define HUGETLB_SUPPORTED	1
 #	endif

@@ -32,7 +32,7 @@
  * to raise an error when used in the 2nd argument of realpath().
  */
 #ifndef PATH_MAX
-#  ifdef __linux__
+#  if defined(__linux__) || defined(__NetBSD__)
 #    include <sys/param.h>
 #  else
 #    define PATH_MAX 	1023

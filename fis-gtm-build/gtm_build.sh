@@ -10,7 +10,7 @@ echo ""
 echo "cmake -D CMAKE_INSTALL_PREFIX:PATH=${PWD}/package ../"
 echo "* * * * * * * *"
 
-cmake -D CMAKE_INSTALL_PREFIX:PATH=${PWD}/package ../
+cmake -D CMAKE_BUILD_TYPE=DEBUG -D CMAKE_INSTALL_PREFIX:PATH=${PWD}/package ../
 echo "make; sudo make install"
 echo "* * * * * * * *"
 

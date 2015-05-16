@@ -17,7 +17,7 @@
 
 #define SHMID           2
 
-#ifdef __linux__
+#if defined(__linux__) || defined(__NetBSD__)
 #define KEY             1
 #define IPCS_CMD_STR		"ipcs -m | grep '^0x'"
 #define IPCS_SEM_CMD_STR	"ipcs -s | grep '^0x'"

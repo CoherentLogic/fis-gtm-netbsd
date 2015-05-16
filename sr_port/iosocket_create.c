@@ -280,7 +280,7 @@ socket_struct *iosocket_create(char *sockaddr, uint4 bfsize, int file_des, boole
 		if (-1 == getsockname(socketptr->sd, SOCKET_LOCAL_ADDR(socketptr), &tmp_addrlen))
 		{
 			save_errno = errno;
-#			if !defined(__linux__) && !defined(VMS)
+#			if !defined(__linux__) && !defined(VMS) && !defined(__NetBSD__)
 			if ((EOPNOTSUPP == save_errno)
 #				if defined(_AIX)
 				|| (ENOTCONN == save_errno)

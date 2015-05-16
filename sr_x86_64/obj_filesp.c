@@ -151,6 +151,9 @@ void finish_object_file(void)
         Elf_Data	*text_data, *symtab_data, *strtab_data;
         Elf64_Sym	symEntries[3];
 
+	int err;
+	const char *errmsg;
+
         buff_flush();
         bufSize = gtm_object_size;
         actualSize = 0;
@@ -185,12 +188,20 @@ void finish_object_file(void)
         }
         if (0 == (elf = elf_begin(object_file_des, ELF_C_WRITE, NULL)))
         {
-		FPRINTF(stderr, "elf_begin failed!\n");
+	  err = elf_errno();
+	  if (err != 0)
+	    errmsg = elf_errmsg(err);
+
+	  FPRINTF(stderr, "elf_begin failed!\n");
 		assertpro(FALSE);
         }
         if (NULL == (ehdr = elf64_newehdr(elf)))
         {
-		FPRINTF(stderr, "elf64_newehdr() failed!\n");
+	  err = elf_errno();
+	  if (err != 0)
+	    errmsg = elf_errmsg(err);
+	  
+	  FPRINTF(stderr, "elf64_newehdr() failed [%d %d %s]!\n", err, ehdr, errmsg);
 		assertpro(FALSE);
         }
         ehdr->e_ident[EI_MAG0] = ELFMAG0;

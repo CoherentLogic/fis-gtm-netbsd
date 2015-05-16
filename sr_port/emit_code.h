@@ -51,6 +51,8 @@ int	gtm_reg(int vax_reg);
 #define ASM_OUT_BUFF 	256
 #define PUSH_LIST_SIZE	500
 
+/* NBP */
+
 #if defined(__vms) || defined(_AIX) || defined(__sparc) || defined(__hpux) || (defined(__linux__) && defined(__ia64)) \
   || defined(__MVS__) 
 #  define TRUTH_IN_REG

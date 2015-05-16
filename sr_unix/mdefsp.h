@@ -105,7 +105,7 @@ typedef unsigned short	in_port_t;
 #endif /* __s390__ */
 #endif /* __linux__ */
 
-#ifdef __linux__
+#if defined(__linux__) || defined(__NetBSD__)
 #define SYS_ERRLIST_INCLUDE	"gtm_stdio.h"
 #define MUTEX_MSEM_WAKE
 #define POSIX_MSEM
@@ -213,7 +213,7 @@ typedef struct
 /* gtm_shmget calls either the native shmget or libhugetlbfs's shmget which uses Huge Pages
  * to back the shared segment if possible. This is a Linux only library.
  */
-#if defined(__linux__) && (defined(__x86_64__) || defined(__i386__))
+#if (defined(__linux__) || defined(__NetBSD__)) && (defined(__x86_64__) || defined(__i386__))
 #	define shmget	gtm_shmget
 	extern int gtm_shmget(key_t , size_t , int);
 #endif

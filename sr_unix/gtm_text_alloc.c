@@ -42,6 +42,10 @@
 #include "gtmio.h"
 #include "have_crit.h"
 
+#if defined(__NetBSD__)
+#  define MAP_ANONYMOUS MAP_ANON
+#endif
+
 GBLREF  int		process_exiting;		/* Process is on it's way out */
 GBLREF	volatile int4	fast_lock_count;		/* Stop stale/epoch processing while we have our parts exposed */
 GBLREF	uint4		gtmDebugLevel;

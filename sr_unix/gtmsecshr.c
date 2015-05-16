@@ -1043,7 +1043,7 @@ void service_request(gtmsecshr_mesg *buf, int msglen, char *rundir, int rundir_l
 int validate_receiver(gtmsecshr_mesg *buf, char *rundir, int rundir_len, int save_code)
 {
 	int	save_errno;
-#	ifdef __linux__
+#	if defined(__linux__) || defined(__NetBSD__)
 #	  define PROCPATH_PREFIX	"/proc/"
 #	  define PROCPATH_CMDLSUFFIX	"/cmdline"
 #	  define PROCPATH_MAPSSUFFIX	"/maps"

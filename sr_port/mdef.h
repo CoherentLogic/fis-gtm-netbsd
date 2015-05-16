@@ -201,7 +201,7 @@ typedef UINTPTR_T uintszofptr_t;
 #	define CYGWIN_ONLY(X)
 #endif
 
-#ifdef __linux__
+#if defined(__linux__) || defined(__NetBSD__)
 #	define LINUX_ONLY(X) X
 #	define NON_LINUX_ONLY(X)
 #else

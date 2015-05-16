@@ -172,7 +172,7 @@ void do_isync(void);
 	SHM_WRITE_MEMORY_BARRIER;			\
 }
 
-#elif defined(__linux__) /* gcc */
+#elif defined(__linux__) || defined(__NetBSD__) /* gcc */
 
 #	define SHM_WRITE_MEMORY_BARRIER		__asm__ __volatile__ ("mf" ::: "memory")
 #	define MM_WRITE_MEMORY_BARRIER			\
